@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Lobby from './Lobby';
-import '../styles/App.css';
 
 class App extends Component {
     constructor(props) {
