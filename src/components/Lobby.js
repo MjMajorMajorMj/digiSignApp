@@ -9,7 +9,7 @@ class Lobby extends Component {
         return (
             <div className="lobby">
                 <TextPanel location={location}/>
-                <ActivitesPanel />
+                <ActivitesPanel location={location}/>
             </div>
         )
     }
