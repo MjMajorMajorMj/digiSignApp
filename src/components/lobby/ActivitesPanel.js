@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ActivitesList from './ActivitesList';
+import ActivityDetails from './ActivityDetails';
 import base from '../../base';
 import '../../styles/Lobby.css'
 
@@ -28,9 +29,15 @@ class ActivitesPanel extends Component {
             )
         } else {
             return (
-                <div className="activitesanel">
-                    <h1 className="activitesPanelTitle">Activites</h1>
-                    <ActivitesList activites={activites} />
+                <div className="activitesPanel">
+                    <div className="activityList">
+                        <h1 className="activitesPanelTitle">Activites</h1>
+                        <ActivitesList activites={activites} />
+                    </div>
+                    <div className="activityDetails">
+                        <h1>Activity</h1>
+                        <ActivityDetails />
+                    </div>
                 </div>
             )
         }
