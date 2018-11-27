@@ -10,14 +10,14 @@ class ActivitesPanel extends Component {
         this.state = {
             activites: {}
         }
-    }
+    };
     componentDidMount() {
         const { location } = this.props;
         base.syncState(`${location}/activites`, {
             context: this,
             state: "activites",
         });
-    }
+    };
     render() {
         const { activites } = this.state;
         let activitesCount = Object.keys(activites).length;
@@ -32,11 +32,11 @@ class ActivitesPanel extends Component {
                 <div className="activitesPanel">
                     <div className="activityList">
                         <h1 className="activitesPanelTitle">Activites</h1>
-                        <ActivitesList activites={activites} />
+                        <ActivitesList activites={activites}/>
                     </div>
                     <div className="activityDetails">
                         <h1>Activity</h1>
-                        <ActivityDetails />
+                        <ActivityDetails activity={activites[Object.keys(activites)[0]]} />
                     </div>
                 </div>
             )
