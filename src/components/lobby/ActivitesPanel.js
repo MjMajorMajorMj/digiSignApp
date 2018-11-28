@@ -35,7 +35,6 @@ class ActivitesPanel extends Component {
                         <ActivitesList activites={activites}/>
                     </div>
                     <div className="activityDetails">
-                        <h1>Activity</h1>
                         <ActivityDetails activity={activites[Object.keys(activites)[0]]} />
                     </div>
                 </div>
