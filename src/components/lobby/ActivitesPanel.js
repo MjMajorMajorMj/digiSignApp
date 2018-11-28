@@ -9,7 +9,7 @@ class ActivitesPanel extends Component {
         super(props);
         this.state = {
             activites: {},
-            currentActivityNum: 0
+            currentActivityNum: 2
         };
         this.switchActivity = this.switchActivity.bind(this);
     };
@@ -22,7 +22,7 @@ class ActivitesPanel extends Component {
     };
     switchActivity() {
         const { activites, currentActivityNum } = this.state;
-        let activitesCount = Object.keys(activites).length;
+        let activitesCount = Object.keys(activites).length-1;
         let changingActivityNum = currentActivityNum;
         if (currentActivityNum === activitesCount) {
             changingActivityNum = 0;
