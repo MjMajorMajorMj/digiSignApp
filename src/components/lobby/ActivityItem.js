@@ -6,7 +6,7 @@ class ActivityItem extends Component {
         const { activity, currentActivity } = this.props;
         let currentActivityStyle = {};
         if (activity === currentActivity) {
-            currentActivityStyle = {color: 'yellow'};
+            currentActivityStyle = {color: '#d8f800'};
         } else {
             currentActivityStyle = {color: 'white'};
         }
