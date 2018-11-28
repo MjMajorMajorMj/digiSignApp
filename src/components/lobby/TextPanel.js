@@ -6,7 +6,7 @@ class TextPanel extends Component {
         const { location } = this.props;
         return (
             <div className="textPanel">
-                <h1 className="textPanelTitle">Welcome to Brainy Actz {location}</h1>
+                <h1 className="textPanelTitle">Welcome to <span className="brainyActz">Brainy Actz</span> {location}</h1>
             </div>
         )
     }

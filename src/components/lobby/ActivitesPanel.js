@@ -47,7 +47,9 @@ class ActivitesPanel extends Component {
                 <div className="activitesPanel">
                     <div className="activityList">
                         <h1 className="activitesPanelTitle">Activites</h1>
-                        <ActivitesList activites={activites} currentActivity={activites[Object.keys(activites)[currentActivityNum]].name}/>
+                        <div className="activityListDiv">
+                            <ActivitesList activites={activites} currentActivity={activites[Object.keys(activites)[currentActivityNum]].name}/>
+                        </div>
                     </div>
                     <div className="activityDetails">
                         <ActivityDetails switchActivity={ this.switchActivity } activity={activites[Object.keys(activites)[currentActivityNum]]} />

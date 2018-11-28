@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ActivityItem from './ActivityItem';
+import '../../styles/Lobby.css'
 
 class ActivitesList extends Component {
     render() {
