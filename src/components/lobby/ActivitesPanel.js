@@ -9,7 +9,7 @@ class ActivitesPanel extends Component {
         super(props);
         this.state = {
             activites: {},
-            currentActivityNum: 2
+            currentActivityNum: 0
         };
         this.switchActivity = this.switchActivity.bind(this);
     };
@@ -47,7 +47,7 @@ class ActivitesPanel extends Component {
                 <div className="activitesPanel">
                     <div className="activityList">
                         <h1 className="activitesPanelTitle">Activites</h1>
-                        <ActivitesList activites={activites}/>
+                        <ActivitesList activites={activites} currentActivity={activites[Object.keys(activites)[currentActivityNum]].name}/>
                     </div>
                     <div className="activityDetails">
                         <ActivityDetails switchActivity={ this.switchActivity } activity={activites[Object.keys(activites)[currentActivityNum]]} />
