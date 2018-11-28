@@ -19,7 +19,7 @@ class ActivityDetails extends Component {
                 <div style={bgImg} className="nameDetails">
                     <h1>{name}</h1>
                     <p>{desc}</p>
-                    <ReactPlayer url={video} playing={false} volume={0} muted={true} />
+                    <ReactPlayer url={video} playing={false} volume={0} muted={true} onEnded={this.props.switchActivity}/>
                 </div>
             </div>
         )

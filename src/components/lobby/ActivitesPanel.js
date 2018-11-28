@@ -8,8 +8,10 @@ class ActivitesPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activites: {}
-        }
+            activites: {},
+            currentActivityNum: 0
+        };
+        this.switchActivity = this.switchActivity.bind(this);
     };
     componentDidMount() {
         const { location } = this.props;
@@ -18,8 +20,21 @@ class ActivitesPanel extends Component {
             state: "activites",
         });
     };
+    switchActivity() {
+        const { activites, currentActivityNum } = this.state;
+        let activitesCount = Object.keys(activites).length;
+        let changingActivityNum = currentActivityNum;
+        if (currentActivityNum === activitesCount) {
+            changingActivityNum = 0;
+        } else {
+            changingActivityNum++;
+        };
+        this.setState({
+            currentActivityNum: changingActivityNum
+        });
+    };
     render() {
-        const { activites } = this.state;
+        const { activites, currentActivityNum } = this.state;
         let activitesCount = Object.keys(activites).length;
         if (activitesCount === 0) {
             return (
@@ -35,7 +50,7 @@ class ActivitesPanel extends Component {
                         <ActivitesList activites={activites}/>
                     </div>
                     <div className="activityDetails">
-                        <ActivityDetails activity={activites[Object.keys(activites)[0]]} />
+                        <ActivityDetails switchActivity={ this.switchActivity } activity={activites[Object.keys(activites)[currentActivityNum]]} />
                     </div>
                 </div>
             )
