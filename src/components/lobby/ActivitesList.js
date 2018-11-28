@@ -3,9 +3,9 @@ import ActivityItem from './ActivityItem';
 
 class ActivitesList extends Component {
     render() {
-        const { activites } = this.props;
+        const { activites, currentActivity} = this.props;
         const activityNames = Object.keys(activites).map(key =>
-            <ActivityItem key={key} activity={activites[key].name} />
+            <ActivityItem key={key} activity={activites[key].name} currentActivity={currentActivity} />
         )
         return(
             <div>
