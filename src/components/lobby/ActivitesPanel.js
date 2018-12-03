@@ -15,7 +15,8 @@ class ActivitesPanel extends Component {
     };
     componentDidMount() {
         const { location } = this.props;
-        base.syncState(`${location}/activites`, {
+        const locationNoSpace = location.replace(/\s/g,'');
+        base.syncState(`${locationNoSpace}/activites`, {
             context: this,
             state: "activites",
         });
