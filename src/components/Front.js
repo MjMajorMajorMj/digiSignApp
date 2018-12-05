@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "../styles/Front.css";
 
 class Front extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class Front extends Component {
                     <div className="locationBtns">
                         <button onClick={(e) => this.goToStore("Irvine", e)}>Irvine</button>
                         <button onClick={(e) => this.goToStore("Temecula", e)}>Temecula</button>
-                        <button onClick={(e) => this.goToStore("SanDiego", e)}>San Diego</button>
+                        <button onClick={(e) => this.goToStore("San Diego", e)}>San Diego</button>
                     </div>
                 </div>
             </div>
