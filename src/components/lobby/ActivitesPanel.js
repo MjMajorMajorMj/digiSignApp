@@ -16,10 +16,13 @@ class ActivitesPanel extends Component {
     componentDidMount() {
         const { location } = this.props;
         const locationNoSpace = location.replace(/\s/g,'');
-        base.syncState(`${locationNoSpace}/activites`, {
+        this.ref = base.syncState(`${locationNoSpace}/activites`, {
             context: this,
             state: "activites",
         });
+    };
+    componentWillUnmount = () => {
+        base.removeBinding(this.ref);
     };
     switchActivity() {
         const { activites, currentActivityNum } = this.state;
