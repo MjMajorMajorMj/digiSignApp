@@ -21,7 +21,7 @@ class ActivitesPanel extends Component {
             state: "activites",
         });
     };
-    componentWillUnmount = () => {
+    componentWillUnmount() {
         base.removeBinding(this.ref);
     };
     switchActivity() {
