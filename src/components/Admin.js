@@ -1,0 +1,50 @@
+import React, { Component } from 'react';
+import LoginComponent from './admin/Login';
+import Dash from './admin/Dash';
+import firebase from 'firebase';
+
+class Admin extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false,
+            correctCred: true
+        }
+        this.loginFunction = this.loginFunction.bind(this);
+    };
+    loginFunction(userObj) {
+        const { user, pass } = userObj;
+        firebase.auth().signInWithEmailAndPassword(user, pass).then(() => {
+            this.setState({
+                isLoggedIn: true,
+                correctCred: true
+            });
+        }).catch(() =>  {
+            console.log("Wrong username and/or password");
+            this.setState({
+                correctCred: false
+            })
+        });
+    }
+    render() {
+        const { isLoggedIn, correctCred } = this.state;
+        if (isLoggedIn) {
+            return (
+                <Dash />
+            )
+        } else if (!isLoggedIn && !correctCred) {
+            return (
+                <div>
+                    <LoginComponent loginFunction={this.loginFunction} />
+                    <p>Wrong username/password</p>
+                </div>
+            )
+        } else {
+            return (
+                <LoginComponent loginFunction={this.loginFunction} />
+            )
+        }
+    }
+}
+
+export default Admin;
