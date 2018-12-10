@@ -19,7 +19,7 @@ class LoginComponent extends Component {
         return (
             <div>
                 <div className="loginHeader">
-                    <h1>Admin Page</h1>
+                    <h1>Login Page</h1>
                 </div>
                 <div className="loginFormDiv">
                     <form onSubmit={this.loginEvent} className="loginForm">

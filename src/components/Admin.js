@@ -8,18 +8,20 @@ class Admin extends Component {
         super(props);
         this.state = {
             isLoggedIn: false,
-            correctCred: true
+            correctCred: true,
+            user: null
         }
         this.loginFunction = this.loginFunction.bind(this);
     };
     loginFunction(userObj) {
         const { user, pass } = userObj;
-        firebase.auth().signInWithEmailAndPassword(user, pass).then(() => {
+        firebase.auth().signInWithEmailAndPassword(user, pass).then((result) => {
             this.setState({
                 isLoggedIn: true,
-                correctCred: true
+                correctCred: true,
+                user: result.user
             });
-        }).catch(() =>  {
+        }).catch(() => {
             console.log("Wrong username and/or password");
             this.setState({
                 correctCred: false
