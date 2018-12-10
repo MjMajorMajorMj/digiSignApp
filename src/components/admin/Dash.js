@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Actions from './Actions';
 
 class Dash extends Component {
     constructor(props) {
@@ -9,12 +10,13 @@ class Dash extends Component {
         this.locSelect = this.locSelect.bind(this);
     }
     locSelect(event) {
+        const selectedLocation = event.target.value;
         this.setState({
-            location: event.target.location
-        })
-        console.log(this.state);
+            location: selectedLocation
+        });
     }
     render() {
+        const { location } = this.state;
         return (
             <div>
                 <div className="loginHeader">
@@ -22,11 +24,14 @@ class Dash extends Component {
                 </div>
                 <div className="locationSelectorDiv">
                     <p>Select Location</p>
-                    <select location={this.state.location} onChange={(event) => this.locSelect(event)}>
+                    <select location={this.state.location} onChange={this.locSelect}>
                         <option value="Irvine">Irvine</option>
-                        <option value="SanDiego">San Diego</option>
+                        <option value="San Diego">San Diego</option>
                         <option value="Temecula">Temecula</option>
                     </select>
+                </div>
+                <div className="actionsDiv">
+                    <Actions location={location}/>
                 </div>
             </div>
         )
