@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import base from '../../base';
 import Add from './Add';
 import Edit from './Edit';
 import Delete from './Delete';
@@ -8,35 +9,52 @@ class Actions extends Component {
         super(props);
         this.state = {
             location: "Irvine",
-            action: null
+            action: null,
+            activites: null
         }
         this.doAction = this.doAction.bind(this);
+        this.getActivites = this.getActivites.bind(this);
     };
+    componentDidMount() {
+        this.getActivites();
+    }
     componentDidUpdate(prevProps) {
         const { location } = this.props;
         if (location !== prevProps.location) {
             this.setState({
                 location: location
             })
+            this.getActivites();
         }
     };
+    getActivites() {
+        const { location } = this.state;
+        const locationNoSpace = location.replace(/\s/g,'');
+        base.fetch(`${locationNoSpace}/activites`, {
+            context: this
+        }).then(data => {
+            this.setState({
+                activites: data
+            })
+        });
+    }
     doAction(action) {
         this.setState({
             action: action
         })
     }
     render() {
-        const { location, action } = this.state;
+        const { location, action, activites } = this.state;
         let selActionComp = null;
         switch(action) {
             case "add":
-                selActionComp = <Add location={location} />
+                selActionComp = <Add location={location} activites={activites} />
                 break;
             case "edit":
-                selActionComp = <Edit location={location} />
+                selActionComp = <Edit location={location} activites={activites} />
                 break;
             case "delete":
-                selActionComp = <Delete location={location} />
+                selActionComp = <Delete location={location} activites={activites} />
                 break;
             default:
                 console.log("Action Switch Loaded")
