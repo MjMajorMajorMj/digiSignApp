@@ -18,7 +18,6 @@ class Add extends Component {
         this.addActivity = this.addActivity.bind(this);
     }
     componentDidMount() {
-        console.log(this.props);
         const { activites } = this.props;
         this.setState({
             activites: activites
