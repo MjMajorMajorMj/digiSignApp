@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EditForm from './EditForm';
 
 class Edit extends Component {
     constructor(props) {
@@ -6,20 +7,25 @@ class Edit extends Component {
         this.state = {
             location: "Irvine",
             activites: null,
-            selectedActivity: null
+            selectedActivity: null,
+            selectedActivityNum: null
         };
         this.selectActivity = this.selectActivity.bind(this);
     }
     componentDidMount() {
         console.log("Component Mounted");
         const { activites } = this.props;
+        const preSelected = activites[Object.keys(activites)[0]]
         this.setState({
-            activites: activites
+            activites: activites,
+            selectedActivity: preSelected,
+            selectedActivityNum: 0
         });
     };
     componentDidUpdate(prevProps) {
         const { location, activites } = this.props;
         if (location !== prevProps.location) {
+            console.log('updated');
             this.setState({
                 location: location,
                 activites: activites
@@ -27,17 +33,20 @@ class Edit extends Component {
         }
     };
     selectActivity(event) {
-        const selectedActivity = event.target.value;
+        const { activites } = this.state;
+        const selectedActivityNum = event.target.value;
+        const selectedActivity = activites[Object.keys(activites)[selectedActivityNum]];
         this.setState({
-            selectedActivity: selectedActivity
+            selectedActivity: selectedActivity,
+            selectedActivityNum: selectedActivityNum
         })
     }
     render() {
-        const { activites } = this.state;
+        const { activites, selectedActivity, selectedActivityNum, location } = this.state;
         if (activites) {
-            const activityOptions = Object.keys(activites).map(key =>
-                <option key={key} value={activites[key]}>{activites[key].name}</option>
-            )
+            const activityOptions = Object.keys(activites).map((key, index) =>
+                <option key={key} value={index}>{activites[key].name}</option>
+            );
             return (
                 <div>
                     <div className="actionHeader">
@@ -48,6 +57,9 @@ class Edit extends Component {
                         <select onChange={this.selectActivity}>
                             {activityOptions}
                         </select>
+                        <div className="editForm">
+                            <EditForm location={location} activity={selectedActivity} actNum={selectedActivityNum} />
+                        </div>
                     </div>
                 </div>
             )

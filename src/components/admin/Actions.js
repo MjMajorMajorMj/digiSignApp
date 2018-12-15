@@ -8,7 +8,7 @@ class Actions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            location: "Irvine",
+            location: "",
             action: null,
             activites: null
         }
@@ -16,24 +16,22 @@ class Actions extends Component {
         this.getActivites = this.getActivites.bind(this);
     };
     componentDidMount() {
-        this.getActivites();
+        const { location } = this.props;
+        this.getActivites(location);
     }
     componentDidUpdate(prevProps) {
         const { location } = this.props;
         if (location !== prevProps.location) {
-            this.setState({
-                location: location
-            })
-            this.getActivites();
+            this.getActivites(location);
         }
     };
-    getActivites() {
-        const { location } = this.state;
+    getActivites(location) {
         const locationNoSpace = location.replace(/\s/g,'');
         base.fetch(`${locationNoSpace}/activites`, {
             context: this
         }).then(data => {
             this.setState({
+                location: location,
                 activites: data
             })
         });
@@ -57,7 +55,7 @@ class Actions extends Component {
                 selActionComp = <Delete location={location} activites={activites} />
                 break;
             default:
-                console.log("Action Switch Loaded")
+                break;
         }
         return (
             <div>
