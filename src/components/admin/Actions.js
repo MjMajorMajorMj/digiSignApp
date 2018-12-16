@@ -32,7 +32,8 @@ class Actions extends Component {
         }).then(data => {
             this.setState({
                 location: location,
-                activites: data
+                activites: data,
+                action: null
             })
         });
     }
