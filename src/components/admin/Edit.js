@@ -13,7 +13,6 @@ class Edit extends Component {
         this.selectActivity = this.selectActivity.bind(this);
     }
     componentDidMount() {
-        console.log("Component Mounted");
         const { activites } = this.props;
         const preSelected = activites[Object.keys(activites)[0]]
         this.setState({
@@ -25,7 +24,6 @@ class Edit extends Component {
     componentDidUpdate(prevProps) {
         const { location, activites } = this.props;
         if (location !== prevProps.location) {
-            console.log('updated');
             this.setState({
                 location: location,
                 activites: activites
@@ -68,7 +66,6 @@ class Edit extends Component {
                 null
             )
         }
-        
     }
 }
 
