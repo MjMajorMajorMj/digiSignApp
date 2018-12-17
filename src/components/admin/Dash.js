@@ -20,17 +20,17 @@ class Dash extends Component {
         return (
             <div>
                 <div className="loginHeader">
-                    <h1>Admin Page</h1>
+                    <h1>Brainy Actz Admin Page</h1>
                 </div>
                 <div className="locationSelectorDiv">
-                    <p>Select Location</p>
+                    <h1>Select Location</h1>
                     <select location={this.state.location} onChange={this.locSelect}>
                         <option value="Irvine">Irvine</option>
                         <option value="San Diego">San Diego</option>
                         <option value="Temecula">Temecula</option>
                     </select>
                 </div>
-                <div className="actionsDiv">
+                <div className="actionsCompDiv">
                     <Actions location={location}/>
                 </div>
             </div>

@@ -28,7 +28,7 @@ class Actions extends Component {
         }
     };
     getActivites(location) {
-        const locationNoSpace = location.replace(/\s/g,'');
+        const locationNoSpace = location.replace(/\s/g, '');
         base.fetch(`${locationNoSpace}/activites`, {
             context: this
         }).then(data => {
@@ -56,7 +56,7 @@ class Actions extends Component {
         const { location, action, activites, displayConfirm } = this.state;
         let selActionComp = null;
         let confirmMsg = null;
-        switch(action) {
+        switch (action) {
             case "add":
                 selActionComp = <Add rebaseConfirm={this.displayMessage} location={location} activites={activites} />
                 break;
@@ -69,7 +69,7 @@ class Actions extends Component {
             default:
                 break;
         };
-        switch(displayConfirm) {
+        switch (displayConfirm) {
             case "addSuccess":
                 confirmMsg = <h1>Activity successfully added</h1>;
                 break;
@@ -92,15 +92,17 @@ class Actions extends Component {
                     <h1>{location}</h1>
                 </div>
                 <div className="actionsDiv">
-                    <button onClick={() => this.doAction("add")}>Add Activity</button>
-                    <button onClick={() => this.doAction("edit")}>Edit Activites</button>
-                    <button onClick={() => this.doAction("delete")}>Delete Activity</button>
-                </div>
-                <div className="selActionDiv">
-                    {selActionComp}
-                </div>
-                <div className="messageDiv">
-                    {confirmMsg}
+                    <div className="actionSelectorDiv">
+                        <button onClick={() => this.doAction("add")}>Add Activity</button>
+                        <button onClick={() => this.doAction("edit")}>Edit Activites</button>
+                        <button onClick={() => this.doAction("delete")}>Delete Activity</button>
+                    </div>
+                    <div className="selActionDiv">
+                        {selActionComp}
+                    </div>
+                    <div className="messageDiv">
+                        {confirmMsg}
+                    </div>
                 </div>
             </div>
         )

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LoginComponent from './admin/Login';
 import Dash from './admin/Dash';
 import firebase from 'firebase';
+import '../styles/Admin.css';
 
 class Admin extends Component {
     constructor(props) {
@@ -38,7 +39,9 @@ class Admin extends Component {
             return (
                 <div>
                     <LoginComponent loginFunction={this.loginFunction} />
-                    <p>Wrong username/password</p>
+                    <div className="wrongUser">
+                        <p>Wrong username/password</p>
+                    </div>
                 </div>
             )
         } else {
