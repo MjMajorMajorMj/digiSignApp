@@ -58,9 +58,9 @@ class Add extends Component {
         base.post(`${locationNoSpace}/activites/${newActivityName}`, {
             data: addedActivity
         }).then(()=> {
-            console.log("Activity Added");
+            this.props.rebaseConfirm("addSuccess");
         }).catch(err=> {
-            console.log(err);
+            this.props.rebaseConfirm("fail");
         })
     }
     render() {

@@ -66,7 +66,7 @@ class Delete extends Component {
             if (!deleteConfirm) { 
                 showDelConfComp = <button onClick={() => this.showConfirm()}>Delete Activity</button>
             } else {
-                showDelConfComp = <DeleteConfirm showConfirm={this.showConfirm} selectedActivityNum={selectedActivityNum} location={location} />
+                showDelConfComp = <DeleteConfirm rebaseConfirm={this.props.rebaseConfirm} showConfirm={this.showConfirm} selectedActivityNum={selectedActivityNum} location={location} />
             }
             return (
                 <div>

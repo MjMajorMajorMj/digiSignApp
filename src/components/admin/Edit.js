@@ -56,7 +56,7 @@ class Edit extends Component {
                             {activityOptions}
                         </select>
                         <div className="editForm">
-                            <EditForm location={location} activity={selectedActivity} actNum={selectedActivityNum} />
+                            <EditForm rebaseConfirm={this.props.rebaseConfirm} location={location} activity={selectedActivity} actNum={selectedActivityNum} />
                         </div>
                     </div>
                 </div>
