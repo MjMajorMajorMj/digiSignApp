@@ -18,8 +18,8 @@ h1, p {
 }
 
 .textPanel {
-    width: 100%;
-    height: 100px;
+    width: 100vw;
+    height: 10vh;
     background: rgba(0, 0, 0, 0.5);
 }
 
@@ -30,7 +30,7 @@ h1, p {
 .textPanelTitle {
     text-align: center;
     margin: 0 auto;
-    padding: 25px 0;
+    padding: 1vh 0;
     font-family: 'Abel';
     font-weight: normal;
     letter-spacing: 0.15em;
@@ -43,7 +43,8 @@ h1, p {
 }
 
 .activityList {
-    width: 25%;
+    width: 25vw;
+    height: 90vh;
     background: rgba(0, 0, 0, 0.9);
     display: inline-block;
 }
@@ -56,7 +57,8 @@ h1, p {
 }
 
 .activityDetails {
-    width: 75%;
+    width: 75vw;
+    height: 90vh;
     background: rgba(0, 0, 0, 0.5);
     display: inline-block;
 }
@@ -72,4 +74,14 @@ h1, p {
     display: flex;
     align-items: center;
     justify-content: center
+}
+
+.nameDetails {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain
+}
+
+.activityDetailDiv {
+    background: rgba(0, 0, 0, 0.5)
 }

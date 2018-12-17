@@ -14,14 +14,14 @@ code {
 
 .frontHeader { 
     text-align: center;
-    width: 100%;
+    width: 100vw;
     height: 10vh;
     background: rgba(0, 0, 0, 0.5);
 }
 
 .locationPicker {
     text-align: center;
-    width: 100%;
+    width: 100vw;
     height: 90vh;
     background: rgba(0, 0, 0, 0.5);
 }

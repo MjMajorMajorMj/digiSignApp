@@ -15,7 +15,6 @@ class ActivityDetails extends Component {
         const { name, desc, image, video } = this.props.activity;
         const bgImg = {
             backgroundImage: `url(${image})`,
-            backgroundPosition: 'center'
         };
         return (
             <div className="activityDetailDiv">
