@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../styles/Admin.css';
 
 class LoginComponent extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class LoginComponent extends Component {
         return (
             <div>
                 <div className="loginHeader">
-                    <h1>Login Page</h1>
+                    <h1>Brainy Actz Login Page</h1>
                 </div>
                 <div className="loginFormDiv">
                     <form onSubmit={this.loginEvent} className="loginForm">
