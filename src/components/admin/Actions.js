@@ -10,10 +10,12 @@ class Actions extends Component {
         this.state = {
             location: "",
             action: null,
-            activites: null
+            activites: null,
+            displayConfirm: ""
         }
         this.doAction = this.doAction.bind(this);
         this.getActivites = this.getActivites.bind(this);
+        this.displayMessage = this.displayMessage.bind(this);
     };
     componentDidMount() {
         const { location } = this.props;
@@ -39,23 +41,49 @@ class Actions extends Component {
     }
     doAction(action) {
         this.setState({
-            action: action
+            action: action,
+            displayConfirm: ""
         })
     }
+    displayMessage(msg) {
+        const { location } = this.state;
+        this.getActivites(location);
+        this.setState({
+            displayConfirm: msg
+        });
+    }
     render() {
-        const { location, action, activites } = this.state;
+        const { location, action, activites, displayConfirm } = this.state;
         let selActionComp = null;
+        let confirmMsg = null;
         switch(action) {
             case "add":
-                selActionComp = <Add location={location} activites={activites} />
+                selActionComp = <Add rebaseConfirm={this.displayMessage} location={location} activites={activites} />
                 break;
             case "edit":
-                selActionComp = <Edit location={location} activites={activites} />
+                selActionComp = <Edit rebaseConfirm={this.displayMessage} location={location} activites={activites} />
                 break;
             case "delete":
-                selActionComp = <Delete location={location} activites={activites} />
+                selActionComp = <Delete rebaseConfirm={this.displayMessage} location={location} activites={activites} />
                 break;
             default:
+                break;
+        };
+        switch(displayConfirm) {
+            case "addSuccess":
+                confirmMsg = <h1>Activity successfully added</h1>;
+                break;
+            case "editSuccess":
+                confirmMsg = <h1>Activity successfully edited</h1>;
+                break;
+            case "deleteSuccess":
+                confirmMsg = <h1>Activity successfully deleted</h1>;
+                break;
+            case "fail":
+                confirmMsg = <h1>Error</h1>;
+                break;
+            default:
+                confirmMsg = null;
                 break;
         }
         return (
@@ -70,6 +98,9 @@ class Actions extends Component {
                 </div>
                 <div className="selActionDiv">
                     {selActionComp}
+                </div>
+                <div className="messageDiv">
+                    {confirmMsg}
                 </div>
             </div>
         )

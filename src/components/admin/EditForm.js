@@ -53,7 +53,6 @@ class EditForm extends Component {
         const actNumAdded = parseInt(actNum)+1;
         const locationNoSpace = location.replace(/\s/g,'');
         const activityWithNum = "activity"+actNumAdded;
-        console.log(activityWithNum, locationNoSpace);
         const editedActivity = {
             name: this.state.name,
             video: this.state.video,
@@ -70,9 +69,9 @@ class EditForm extends Component {
         base.update(`${locationNoSpace}/activites/${activityWithNum}`, {
             data: editedActivity
         }).then(()=> {
-            console.log("Activity Edited");
+            this.props.rebaseConfirm("editSuccess");
         }).catch(err=> {
-            console.log(err);
+            this.props.rebaseConfirm("fail");
         })
     }
     render() {

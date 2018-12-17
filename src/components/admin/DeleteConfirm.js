@@ -36,9 +36,9 @@ class DeleteConfirm extends Component {
         const locationNoSpace = location.replace(/\s/g,'');
         const activityWithNum = "activity"+actNumAdded;
         base.remove(`${locationNoSpace}/activites/${activityWithNum}`).then(()=> {
-            console.log("Activity Deleted");
+            this.props.rebaseConfirm("deleteSuccess");
         }).catch(err=> {
-            console.log(err);
+            this.props.rebaseConfirm("fail");
         })
     }
     render() {
