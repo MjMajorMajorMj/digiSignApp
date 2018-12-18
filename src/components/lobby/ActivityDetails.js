@@ -22,7 +22,7 @@ class ActivityDetails extends Component {
                     <h1>{name}</h1>
                     <p>{desc}</p>
                     <div className="reactPlayer">
-                        <ReactPlayer url={video} playing={false} volume={0} 
+                        <ReactPlayer url={video} playing={true} volume={0} 
                         muted={true} onEnded={this.props.switchActivity}
                         onError={this.noVideo}/>
                     </div>
