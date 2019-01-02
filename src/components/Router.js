@@ -4,6 +4,7 @@ import App from './App';
 import Front from './Front';
 import NotFound from './NotFound';
 import Admin from './Admin';
+import SoloAct from './SoloAct';
 
 const Router = () => (
     <BrowserRouter>
@@ -11,7 +12,8 @@ const Router = () => (
             <Route exact path="/" component={Front}/>
             <Route exact path="/404" component={NotFound}/>
             <Route exact path="/admin" component={Admin}/>
-            <Route path="/:location" component={App} />
+            <Route exact path="/:location" component={App} />
+            <Route exact path="/:location/:activity" component={SoloAct}/>
         </Switch>
     </BrowserRouter>
 )
