@@ -5,8 +5,9 @@ import '../../styles/Lobby.css'
 class ActivitesList extends Component {
     render() {
         const { activites, currentActivity} = this.props;
+        const { location } = this.props;
         const activityNames = Object.keys(activites).map(key =>
-            <ActivityItem key={key} activity={activites[key].name} currentActivity={currentActivity} />
+            <ActivityItem location={location} key={key} activityNum={key} activity={activites[key].name} currentActivity={currentActivity} />
         )
         return(
             <div>

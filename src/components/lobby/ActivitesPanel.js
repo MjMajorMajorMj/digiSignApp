@@ -39,6 +39,7 @@ class ActivitesPanel extends Component {
     };
     render() {
         const { activites, currentActivityNum } = this.state;
+        const { location } = this.props;
         let activitesCount = Object.keys(activites).length;
         if (activitesCount === 0) {
             return (
@@ -52,7 +53,7 @@ class ActivitesPanel extends Component {
                     <div className="activityList">
                         <h1 className="activitesPanelTitle">Activites</h1>
                         <div className="activityListDiv">
-                            <ActivitesList activites={activites} currentActivity={activites[Object.keys(activites)[currentActivityNum]].name}/>
+                            <ActivitesList location={location} activites={activites} currentActivity={activites[Object.keys(activites)[currentActivityNum]].name}/>
                         </div>
                     </div>
                     <div className="activityDetails">
