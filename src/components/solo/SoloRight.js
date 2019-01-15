@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import ReactPlayer from 'react-player';
+import RightVid from './RightVid';
+import RightLeader from './RightLeader';
 
 class SoloRight extends Component {
     render() {
+        const { video, leaderboard, image } = this.props;
         return (
             <div className="VidDescDiv">
                 <div className="rightVid">
-                    <h1>Right Vid</h1>
+                    <RightVid video={video} />
                 </div>
                 <div className="rightLeaderDiv">
-                    <h1>Right Leaderboard</h1>
+                    <RightLeader leaderboard={leaderboard} image={image} />
                 </div>
             </div>
         )
