@@ -1,0 +1,29 @@
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.soloPanelHeader {
+    background-color: rgba(0,0,0,0.5);
+    height: 10vh;
+    width: 100vw;
+    text-align: center;
+    padding: auto 0;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.locSpan {
+    color: #d8f800
+}
+
+.headerBackDiv {
+    position: absolute;
+    padding-left: 1vw;
+    padding-top: 1vh;
+}
+
+.headerBackDiv p:hover{
+    color: #d8f800;
+    cursor: pointer;
+}
